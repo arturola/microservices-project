@@ -52,7 +52,7 @@ public class OrderService {
 
         if(allProductsInStock) {
             orderRepository.save(order);
-            return "necesario porque está declarado que tiene que retornar string";
+            return "Order Placed Successfully necesario";
         } else {
             throw new IllegalArgumentException("Not all Products are in stock, please try again later");
         }
