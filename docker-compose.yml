@@ -76,6 +76,7 @@ services:
     depends_on:
       - keycloak-mysql
 
+  ## Zookeeper
   zookeeper:
     image: confluentinc/cp-zookeeper:7.0.1
     container_name: zookeeper
@@ -83,6 +84,7 @@ services:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
 
+  ## Kafka Broker
   broker:
     image: confluentinc/cp-kafka:7.0.1
     container_name: broker
@@ -118,6 +120,7 @@ services:
     depends_on:
       - zipkin
 
+  ## API Gateway
   api-gateway:
     image: arturola/api-gateway:latest
     container_name: api-gateway
@@ -145,6 +148,7 @@ services:
       - mongo
       - discovery-server
       - api-gateway
+      - zipkin
 
   ## Order-Service Docker Compose Config
   order-service:
